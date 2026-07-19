@@ -185,15 +185,4 @@ conversation.txt
 *.log
 logs/
 
-.env# Environment variables
 .env
-.env.example
-.env.*
-!.env.example
-*.env
-
-# Secrets
-*.secret
-*.key
-*.pem
-credentials.json
