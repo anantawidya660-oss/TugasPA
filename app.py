@@ -1,4 +1,4 @@
-import os
+import os  # ← Pastikan ini ada
 from flask import Flask, render_template, redirect, url_for, request, session
 from config import Config
 from models import db
@@ -49,11 +49,6 @@ def create_app():
     return app
 
 if __name__ == '__main__':
-    app = create_app()
-    
-    with app.app_context():
-        db.create_all()
-        print("✓ Database tables created successfully!")
-    
     port = int(os.environ.get('PORT', 5000))
-    app.run(debug=app.config['DEBUG'], host='0.0.0.0', port=port)
+    app = create_app()
+    app.run(debug=False, host='0.0.0.0', port=port)
