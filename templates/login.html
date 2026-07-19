@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Ananta Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* ========================================
+           LOGIN PAGE - RED THEME
+           ======================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0a;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+
+        .login-container {
+            width: 100%;
+            max-width: 420px;
+        }
+
+        .login-box {
+            background: #ffffff;
+            padding: 48px 40px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            position: relative;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+        }
+
+        /* Decorative accent - RED */
+        .login-box::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: 20%;
+            right: 20%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #dc2626, transparent);
+            border-radius: 0 0 4px 4px;
+        }
+
+        .login-box .back-link {
+            position: absolute;
+            top: 16px;
+            right: 24px;
+            color: #9ca3af;
+            text-decoration: none;
+            font-size: 13px;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
+        }
+        .login-box .back-link:hover {
+            color: #dc2626;
+        }
+
+        .login-box .brand {
+            font-family: 'Sora', sans-serif;
+            font-size: 22px;
+            font-weight: 800;
+            color: #dc2626;
+            margin-bottom: 2px;
+            display: block;
+        }
+        .login-box .brand span {
+            color: #000a24;
+        }
+        .login-box .brand-sub {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            color: #6b7280;
+            margin-bottom: 28px;
+            display: block;
+            letter-spacing: 1.2px;
+        }
+
+        .login-box h1 {
+            font-family: 'Sora', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 4px;
+            color: #000a24;
+        }
+        .login-box .subtitle {
+            color: #6b7280;
+            margin-bottom: 28px;
+            font-size: 14px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .login-box .form-group {
+            margin-bottom: 16px;
+        }
+        .login-box label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 6px;
+            color: #000a24;
+            font-size: 13px;
+            font-family: 'Inter', sans-serif;
+        }
+        .login-box input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+            font-size: 14px;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
+            background: #f9fafb;
+            color: #000a24;
+        }
+        .login-box input::placeholder {
+            color: #9ca3af;
+        }
+        .login-box input:focus {
+            outline: none;
+            border-color: #dc2626;
+            background: #ffffff;
+            box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.12);
+        }
+
+        .login-box .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 14px 24px;
+            background: #dc2626;
+            color: #ffffff;
+            border: none;
+            border-radius: 9999px;
+            font-size: 14px;
+            font-weight: 700;
+            font-family: 'Inter', sans-serif;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 8px;
+        }
+        .login-box .btn-primary:hover {
+            background: #b91c1c;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(220, 38, 38, 0.25);
+        }
+
+        .login-box .error {
+            background: #fef2f2;
+            color: #dc2626;
+            padding: 12px 16px;
+            border-radius: 10px;
+            margin-bottom: 16px;
+            font-size: 13px;
+            font-family: 'Inter', sans-serif;
+            border: 1px solid #fecaca;
+        }
+
+        .login-box .divider {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 20px 0 16px;
+        }
+        .login-box .divider::before,
+        .login-box .divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: #e5e7eb;
+        }
+        .login-box .divider span {
+            font-size: 10px;
+            color: #9ca3af;
+            font-family: 'Inter', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .login-box .credential-hint {
+            background: #f9fafb;
+            border-radius: 10px;
+            padding: 12px 16px;
+            font-size: 12px;
+            color: #6b7280;
+            font-family: 'JetBrains Mono', monospace;
+            text-align: center;
+            border: 1px dashed #e5e7eb;
+        }
+        .login-box .credential-hint strong {
+            color: #dc2626;
+        }
+
+        .login-box .footer-text {
+            margin-top: 16px;
+            text-align: center;
+        }
+        .login-box .footer-text a {
+            color: #9ca3af;
+            text-decoration: none;
+            font-size: 12px;
+            font-family: 'Inter', sans-serif;
+            transition: color 0.3s ease;
+        }
+        .login-box .footer-text a:hover {
+            color: #dc2626;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-box">
+            <a href="{{ url_for('main.index') }}" class="back-link">← Kembali</a>
+            
+            <span class="brand">✦ <span>Ananta</span></span>
+            <span class="brand-sub">UI/UX Designer & Visual Designer</span>
+            
+            <h1>Admin Login</h1>
+            <p class="subtitle">Masuk untuk mengelola konten portfolio</p>
+            
+            {% if error %}
+            <div class="error">{{ error }}</div>
+            {% endif %}
+            
+            <form method="POST">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" placeholder="Masukkan username" required autofocus>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Masukkan password" required>
+                </div>
+                <button type="submit" class="btn-primary">Masuk ke Dashboard</button>
+            </form>
+            
+            <div class="divider">
+                <span>🔐 akses terbatas</span>
+            </div>
+            
+            <div class="credential-hint">
+                Default: <strong>admin</strong> / <strong>admin123</strong>
+            </div>
+            
+            <div class="footer-text">
+                <a href="{{ url_for('main.index') }}">← Kembali ke Portfolio</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
