@@ -4,6 +4,7 @@ from models import db
 from routes import main_routes, admin_routes, api_routes
 import cloudinary
 import cloudinary.uploader
+import os
 
 def create_app():
     app = Flask(__name__)
@@ -47,12 +48,9 @@ def create_app():
     
     return app
 
+# ✅ EXPORT APP LANGSUNG untuk Gunicorn
+app = create_app()
+
 if __name__ == '__main__':
-    app = create_app()
-    
-    with app.app_context():
-        db.create_all()
-        print("✓ Database tables created successfully!")
-    
     port = int(os.environ.get('PORT', 5000))
-    app.run(debug=app.config['DEBUG'], host='0.0.0.0', port=port)
+    app.run(debug=False, host='0.0.0.0', port=port)
